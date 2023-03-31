@@ -1,5 +1,6 @@
 package org.acme;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -25,6 +26,7 @@ public class GreetingResource {
 
     @GET
     @Path("/userEP")
+    @RolesAllowed("user")
     @Produces(MediaType.TEXT_PLAIN)
     public String call_userEP() {
         return externalService.userEP();   
@@ -32,6 +34,8 @@ public class GreetingResource {
 
     @GET
     @Path("/adminEP")
+    @RolesAllowed("admin")
+
     @Produces(MediaType.TEXT_PLAIN)
     public String call_adminEP() {
         return externalService.adminEP();   
