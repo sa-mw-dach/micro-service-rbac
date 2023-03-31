@@ -33,7 +33,6 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/adminEP")
     @RolesAllowed("admin")
-
     public String helloAdmin() {
         return "I greet you because you are a admin!";
     }

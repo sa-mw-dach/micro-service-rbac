@@ -7,6 +7,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 @Path("/serviceA")
@@ -16,6 +17,9 @@ public class GreetingResource {
     @Inject
     @RestClient
     ExternalService externalService; 
+
+    @Inject
+    JsonWebToken jwt;
 
     @GET
     @Path("/publicEP")
@@ -35,7 +39,6 @@ public class GreetingResource {
     @GET
     @Path("/adminEP")
     @RolesAllowed("admin")
-
     @Produces(MediaType.TEXT_PLAIN)
     public String call_adminEP() {
         return externalService.adminEP();   
