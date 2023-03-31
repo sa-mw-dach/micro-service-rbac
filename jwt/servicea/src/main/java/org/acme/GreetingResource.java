@@ -27,14 +27,16 @@ public class GreetingResource {
     @GET
     @Path("/userEP")
     @RolesAllowed("users")
+
     @Produces(MediaType.TEXT_PLAIN)
     public String call_userEP() {
-        return "Hallo";
- //       return externalService.userEP();   
+        return externalService.userEP();   
     }
 
     @GET
     @Path("/adminEP")
+    @RolesAllowed("users")
+
     @Produces(MediaType.TEXT_PLAIN)
     public String call_adminEP() {
         return externalService.adminEP();   

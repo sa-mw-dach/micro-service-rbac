@@ -17,6 +17,7 @@ public class GenerateToken {
              .upn("jdoe@quarkus.io") 
              .groups(new HashSet<>(Arrays.asList("users", "admins"))) 
              .claim(Claims.birthdate.name(), "2001-07-13")
+             .claim(Claims.aud.name(),"myservices")
              .expiresIn(3600)
            .sign();
         System.out.println(token);

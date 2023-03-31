@@ -6,6 +6,7 @@ import javax.ws.rs.Path;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @RegisterRestClient
+@RegisterClientHeaders
 @Path("/serviceB")
 public interface ExternalService {
     @GET
