@@ -35,7 +35,7 @@ public class GreetingResource {
 
     @GET
     @Path("/adminEP")
-    @RolesAllowed("users")
+    @RolesAllowed("admins")
 
     @Produces(MediaType.TEXT_PLAIN)
     public String call_adminEP() {
